@@ -3687,7 +3687,8 @@
         "legend": {
           "calcs": [
             "mean",
-            "max"
+            "max",
+            "sum"
           ],
           "displayMode": "table",
           "placement": "right",
