@@ -7270,17 +7270,6 @@
                   ],
                   "fill": "dash"
                 }
-              },
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "custom.stacking",
-                "value": {
-                  "group": "A",
-                  "mode": "normal"
-                }
               }
             ]
           },
