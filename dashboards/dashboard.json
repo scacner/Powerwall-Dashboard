@@ -288,14 +288,6 @@
                   "fixedColor": "rgb(192, 192, 192)",
                   "mode": "fixed"
                 }
-              },
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": true,
-                  "tooltip": true,
-                  "viz": false
-                }
               }
             ]
           },
