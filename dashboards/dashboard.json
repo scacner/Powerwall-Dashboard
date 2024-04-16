@@ -701,7 +701,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT max(from_pw) - max(to_pw) FROM autogen.http WHERE $timeFilter GROUP BY time($__interval) ",
+          "query": "SELECT max(from_pw) - max(to_pw) FROM autogen.http WHERE $timeFilter GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
@@ -746,7 +746,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(from_grid) - max(to_grid) FROM autogen.http WHERE $timeFilter GROUP BY time($__interval) ",
+          "query": "SELECT max(from_grid) - max(to_grid) FROM autogen.http WHERE $timeFilter GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series",
@@ -1076,7 +1076,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT  (1+from_solar/abs(from_solar))*from_solar/2  FROM (SELECT integral(solar)/1000/3600 - integral(to_pw)/1000/3600 - integral(to_grid)/1000/3600  AS from_solar FROM autogen.http WHERE  $timeFilter )",
+          "query": "SELECT (1+from_solar/abs(from_solar))*from_solar/2 FROM (SELECT integral(solar)/1000/3600 - integral(to_pw)/1000/3600 - integral(to_grid)/1000/3600 AS from_solar FROM autogen.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1755,7 +1755,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT (home - from_grid) / home FROM \n  (SELECT integral(\"home\") AS home, integral(\"from_grid\") AS from_grid \n    FROM \"autogen\".\"http\" WHERE $timeFilter)",
+          "query": "SELECT (home - from_grid) / home FROM (SELECT integral(\"home\") AS home, integral(\"from_grid\") AS from_grid FROM \"autogen\".\"http\" WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2374,7 +2374,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB}"
           },
-          "query": "SELECT fp FROM (SELECT sum(\"from_pw\")  * $avg_buy_per_kwh AS fp FROM kwh.http WHERE  $timeFilter )",
+          "query": "SELECT fp FROM (SELECT sum(\"from_pw\") * $avg_buy_per_kwh AS fp FROM kwh.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -2386,7 +2386,7 @@
             "uid": "${DS_INFLUXDB}"
           },
           "hide": false,
-          "query": "SELECT s - (tp + tg) FROM (SELECT sum(\"solar\") * $avg_buy_per_kwh AS s,  sum(\"to_pw\")  * $avg_buy_per_kwh AS tp, sum(\"to_grid\") * $avg_buy_per_kwh AS tg FROM kwh.http WHERE  $timeFilter )",
+          "query": "SELECT s - (tp + tg) FROM (SELECT sum(\"solar\") * $avg_buy_per_kwh AS s, sum(\"to_pw\") * $avg_buy_per_kwh AS tp, sum(\"to_grid\") * $avg_buy_per_kwh AS tg FROM kwh.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series"
@@ -2398,7 +2398,7 @@
             "uid": "${DS_INFLUXDB}"
           },
           "hide": false,
-          "query": "SELECT tgg FROM (SELECT sum(\"to_grid\") * $avg_sell_per_kwh AS tgg FROM kwh.http WHERE  $timeFilter )\n",
+          "query": "SELECT tgg FROM (SELECT sum(\"to_grid\") * $avg_sell_per_kwh AS tgg FROM kwh.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -2410,7 +2410,7 @@
             "uid": "${DS_INFLUXDB}"
           },
           "hide": false,
-          "query": "SELECT tgg + (s - tp - tg ) + fp FROM (SELECT sum(\"to_pw\")  * $avg_buy_per_kwh AS tp, sum(\"solar\") * $avg_buy_per_kwh AS s, sum(\"to_grid\") * $avg_buy_per_kwh AS tg, sum(\"from_pw\") * $avg_buy_per_kwh AS fp, sum(\"to_grid\") * $avg_sell_per_kwh AS tgg FROM kwh.http WHERE  $timeFilter )",
+          "query": "SELECT tgg + (s - tp - tg) + fp FROM (SELECT sum(\"to_pw\") * $avg_buy_per_kwh AS tp, sum(\"solar\") * $avg_buy_per_kwh AS s, sum(\"to_grid\") * $avg_buy_per_kwh AS tg, sum(\"from_pw\") * $avg_buy_per_kwh AS fp, sum(\"to_grid\") * $avg_sell_per_kwh AS tgg FROM kwh.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "D",
           "resultFormat": "time_series"
@@ -2511,7 +2511,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB}"
           },
-          "query": "SELECT  (1+from_solar/abs(from_solar))*from_solar/2  FROM (SELECT integral(solar)/1000/3600 - (integral(to_pw) - integral(grid_to_pw))/1000/3600  - integral(to_grid)/1000/3600  AS from_solar FROM (SELECT from_solar, solar, to_pw, to_grid, ((from_grid - home - solar) + ABS((from_grid - home - solar))) / 2 AS grid_to_pw FROM autogen.http WHERE  $timeFilter ))",
+          "query": "SELECT (1+from_solar/abs(from_solar))*from_solar/2 FROM (SELECT integral(solar)/1000/3600 - (integral(to_pw) - integral(grid_to_pw))/1000/3600 - integral(to_grid)/1000/3600 AS from_solar FROM (SELECT from_solar, solar, to_pw, to_grid, ((from_grid - home - solar) + ABS((from_grid - home - solar))) / 2 AS grid_to_pw FROM autogen.http WHERE $timeFilter))",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -2565,7 +2565,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT (integral(from_grid) - integral(grid_to_pw))/1000/3600  AS from_grid FROM (SELECT from_grid, ((from_grid - home - solar) + ABS((from_grid - home - solar))) / 2 AS grid_to_pw FROM autogen.http WHERE  $timeFilter )",
+          "query": "SELECT (integral(from_grid) - integral(grid_to_pw))/1000/3600 AS from_grid FROM (SELECT from_grid, ((from_grid - home - solar) + ABS((from_grid - home - solar))) / 2 AS grid_to_pw FROM autogen.http WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series",
