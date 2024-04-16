@@ -627,7 +627,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT \"mean_load_instant_power\" FROM \"http\" WHERE $timeFilter ",
+          "query": "SELECT \"mean_load_instant_power\" FROM \"http\" WHERE $timeFilter",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -809,7 +809,7 @@
               },
               {
                 "params": [
-                  " /0.95 - 5/0.95"
+                  "/0.95 - 5/0.95"
                 ],
                 "type": "math"
               }
@@ -973,7 +973,7 @@
           "hide": false,
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT min(\"grid_status\") +1  FROM \"grid\".\"http\" WHERE grid_status = 0 and $timeFilter GROUP BY time($__interval) ",
+          "query": "SELECT min(\"grid_status\") + 1 FROM \"grid\".\"http\" WHERE grid_status = 0 and $timeFilter GROUP BY time($__interval)",
           "rawQuery": true,
           "refId": "J",
           "resultFormat": "time_series",
@@ -1119,7 +1119,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1150,7 +1150,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1564,7 +1564,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1666,7 +1666,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1755,7 +1755,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT (home - from_grid) / home FROM \n  (SELECT integral(\"home\")  AS home, integral(\"from_grid\")  AS from_grid \n      FROM \"autogen\".\"http\" WHERE $timeFilter)",
+          "query": "SELECT (home - from_grid) / home FROM \n  (SELECT integral(\"home\") AS home, integral(\"from_grid\") AS from_grid \n    FROM \"autogen\".\"http\" WHERE $timeFilter)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -1773,7 +1773,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1875,7 +1875,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -1977,7 +1977,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2079,7 +2079,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2181,7 +2181,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2268,7 +2268,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT (integral(\"from_grid\") - integral(\"to_grid\"))   / 1000 / 3600 FROM \"autogen\".\"http\" WHERE $timeFilter",
+          "query": "SELECT (integral(\"from_grid\") - integral(\"to_grid\")) / 1000 / 3600 FROM \"autogen\".\"http\" WHERE $timeFilter",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -2286,7 +2286,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2527,7 +2527,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "autogen",
-          "query": "SELECT integral(\"from_pw\")  / 1000 / 3600 FROM \"autogen\".\"http\" WHERE $timeFilter ",
+          "query": "SELECT integral(\"from_pw\") / 1000 / 3600 FROM \"autogen\".\"http\" WHERE $timeFilter",
           "rawQuery": true,
           "refId": "B",
           "resultFormat": "time_series",
@@ -2545,7 +2545,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2583,7 +2583,7 @@
               },
               {
                 "params": [
-                  " / 1000 / 3600"
+                  "/ 1000 / 3600"
                 ],
                 "type": "math"
               }
@@ -2785,7 +2785,7 @@
             "type": "influxdb",
             "uid": "${DS_INFLUXDB}"
           },
-          "query": "SELECT last(\"load_instant_power\")  / 1000 AS \"Home\", last(\"solar_instant_power\")  / 1000 AS \"Solar\", last(\"battery_instant_power\")  / 1000 AS \"Battery\", last(\"site_instant_power\")  / 1000 AS \"Grid\" FROM \"raw\".\"http\" WHERE time >= now() - 10m",
+          "query": "SELECT last(\"load_instant_power\") / 1000 AS \"Home\", last(\"solar_instant_power\") / 1000 AS \"Solar\", last(\"battery_instant_power\") / 1000 AS \"Battery\", last(\"site_instant_power\") / 1000 AS \"Grid\" FROM \"raw\".\"http\" WHERE time >= now() - 10m",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series"
@@ -3800,7 +3800,7 @@
             "uid": "${DS_INFLUXDB}"
           },
           "hide": false,
-          "query": "SELECT sum(\"from_grid\") - sum(\"to_grid\") as \"grid\" FROM \"kwh\".\"http\" WHERE  $timeFilter GROUP BY time(1d) fill(null) tz('${tz:text}')",
+          "query": "SELECT sum(\"from_grid\") - sum(\"to_grid\") as \"grid\" FROM \"kwh\".\"http\" WHERE $timeFilter GROUP BY time(1d) fill(null) tz('${tz:text}')",
           "rawQuery": true,
           "refId": "C",
           "resultFormat": "time_series"
@@ -9131,7 +9131,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW1_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW1_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "G",
           "resultFormat": "time_series",
@@ -9219,7 +9219,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW2_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW2_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "I",
           "resultFormat": "time_series",
@@ -9307,7 +9307,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW3_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW3_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "K",
           "resultFormat": "time_series",
@@ -9351,7 +9351,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW3_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW3_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "L",
           "resultFormat": "time_series",
@@ -9439,7 +9439,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW4_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW4_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "N",
           "resultFormat": "time_series",
@@ -9483,7 +9483,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW5_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW5_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "O",
           "resultFormat": "time_series",
@@ -9615,7 +9615,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW6_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW6_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "R",
           "resultFormat": "time_series",
@@ -9659,7 +9659,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW7_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW7_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "S",
           "resultFormat": "time_series",
@@ -9703,7 +9703,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW7_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW7_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "T",
           "resultFormat": "time_series",
@@ -9747,7 +9747,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW8_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW8_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "U",
           "resultFormat": "time_series",
@@ -9791,7 +9791,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW8_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW8_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "V",
           "resultFormat": "time_series",
@@ -9835,7 +9835,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW9_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW9_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "W",
           "resultFormat": "time_series",
@@ -9879,7 +9879,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW9_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW9_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "X",
           "resultFormat": "time_series",
@@ -9923,7 +9923,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW10_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW10_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "Y",
           "resultFormat": "time_series",
@@ -9967,7 +9967,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW10_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW10_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "Z",
           "resultFormat": "time_series",
@@ -10011,7 +10011,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW11_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW11_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AA",
           "resultFormat": "time_series",
@@ -10055,7 +10055,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW11_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW11_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AB",
           "resultFormat": "time_series",
@@ -10099,7 +10099,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW12_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW12_PINV_VSplit1\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AC",
           "resultFormat": "time_series",
@@ -10143,7 +10143,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW12_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW12_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" < 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AD",
           "resultFormat": "time_series",
@@ -10187,7 +10187,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW1_PINV_VSplit1\") +  mean(\"PW1_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW1_PINV_VSplit1\") + mean(\"PW1_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AE",
           "resultFormat": "time_series",
@@ -10231,7 +10231,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW2_PINV_VSplit1\") +  mean(\"PW2_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW2_PINV_VSplit1\") + mean(\"PW2_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AF",
           "resultFormat": "time_series",
@@ -10275,7 +10275,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW3_PINV_VSplit1\") +  mean(\"PW3_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW3_PINV_VSplit1\") + mean(\"PW3_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AG",
           "resultFormat": "time_series",
@@ -10319,7 +10319,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW4_PINV_VSplit1\") +  mean(\"PW4_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW4_PINV_VSplit1\") + mean(\"PW4_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AH",
           "resultFormat": "time_series",
@@ -10363,7 +10363,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW5_PINV_VSplit1\") +  mean(\"PW5_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW5_PINV_VSplit1\") + mean(\"PW5_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AI",
           "resultFormat": "time_series",
@@ -10407,7 +10407,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW6_PINV_VSplit1\") +  mean(\"PW6_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW6_PINV_VSplit1\") + mean(\"PW6_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AJ",
           "resultFormat": "time_series",
@@ -10451,7 +10451,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW7_PINV_VSplit1\") +  mean(\"PW7_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW7_PINV_VSplit1\") + mean(\"PW7_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AK",
           "resultFormat": "time_series",
@@ -10495,7 +10495,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW8_PINV_VSplit1\") +  mean(\"PW8_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW8_PINV_VSplit1\") + mean(\"PW8_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AL",
           "resultFormat": "time_series",
@@ -10539,7 +10539,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW9_PINV_VSplit1\") +  mean(\"PW9_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW9_PINV_VSplit1\") + mean(\"PW9_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AM",
           "resultFormat": "time_series",
@@ -10583,7 +10583,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW10_PINV_VSplit1\") +  mean(\"PW10_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW10_PINV_VSplit1\") + mean(\"PW10_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AN",
           "resultFormat": "time_series",
@@ -10627,7 +10627,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW11_PINV_VSplit1\") +  mean(\"PW11_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW11_PINV_VSplit1\") + mean(\"PW11_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AO",
           "resultFormat": "time_series",
@@ -10671,7 +10671,7 @@
           "measurement": "http",
           "orderByTime": "ASC",
           "policy": "vitals",
-          "query": "SELECT mean(\"PW12_PINV_VSplit1\") +  mean(\"PW12_PINV_VSplit2\")  FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND  $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"PW12_PINV_VSplit1\") + mean(\"PW12_PINV_VSplit2\") FROM \"vitals\".\"http\" WHERE \"ISLAND_VL1N_Load\" > 200.0 AND $timeFilter GROUP BY time($__interval) fill(null)",
           "rawQuery": true,
           "refId": "AP",
           "resultFormat": "time_series",
@@ -11872,7 +11872,7 @@
               },
               {
                 "params": [
-                  " / 1000"
+                  "/ 1000"
                 ],
                 "type": "math"
               }
