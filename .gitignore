@@ -25,12 +25,15 @@ pypowerwall.env
 telegraf.local
 
 # Auth files
+.auth/.powerwall
 .auth/.pypowerwall.auth
 .auth/.pypowerwall.site
 
 # Local Dev files
 *.bak
+backups/*.tar.xz
 backups/*.tgz
+backups/backup.sh
 influxdb/run-once-*.sql.done
 
 sandbox/
