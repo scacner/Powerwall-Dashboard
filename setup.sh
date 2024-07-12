@@ -25,15 +25,15 @@ echo "Powerwall Dashboard (v${VERSION}) - SETUP"
 echo "-----------------------------------------"
 
 # Verify not running as root
-if [ "$EUID" -eq 0 ]; then
-    echo "ERROR: Running this as root will cause permission issues."
-    echo ""
-    echo "Please ensure your local user is in the docker group and run without sudo."
-    echo "   sudo usermod -aG docker \$USER"
-    echo "   $0"
-    echo ""
-    exit 1
-fi
+#if [ "$EUID" -eq 0 ]; then
+#    echo "ERROR: Running this as root will cause permission issues."
+#    echo ""
+#    echo "Please ensure your local user is in the docker group and run without sudo."
+#    echo "   sudo usermod -aG docker \$USER"
+#    echo "   $0"
+#    echo ""
+#    exit 1
+#fi
 
 # Verify user has write permission to this directory
 if [ ! -w . ]; then
